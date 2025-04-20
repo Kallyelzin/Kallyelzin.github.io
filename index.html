@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversário!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #fce4ec;
+            color: #880e4f;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-top: 50px;
+        }
+
+        p {
+            font-size: 1.5em;
+            margin: 20px;
+        }
+
+        div.message {
+            background-color: #fff0f5;
+            margin: 30px auto;
+            padding: 20px;
+            max-width: 700px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .balloons {
+            margin-top: 20px;
+            font-size: 2em;
+        }
+
+        button {
+            margin-top: 30px;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background-color: #ff80ab;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ec407a;
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background-color: #ff4081;
+            top: -10px;
+            animation: fall 4s linear infinite;
+            z-index: 9999;
+            opacity: 0.8;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <audio autoplay loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+    </audio>
+
+    <h1>Feliz Aniversário!</h1>
+    <p>Que seu dia seja repleto de alegria, amor e momentos inesquecíveis!</p>
+
+    <div class="message">
+        <p>
+            Feliz aniversário, mãe! 🎉💖<br><br>
+            Hoje é um dia muito especial, porque é o dia da pessoa mais incrível que eu conheço: você.
+            Quero te agradecer por todo o amor, carinho, paciência e força que você sempre me deu.
+            Você é meu exemplo de coragem, dedicação e generosidade.<br><br>
+            Que seu dia seja repleto de alegria, abraços sinceros e muitos sorrisos. Que a vida te presenteie com saúde,
+            paz e tudo de melhor, porque você merece isso e muito mais.<br><br>
+            Te amo demais! Obrigado por tudo, hoje e sempre. ❤️
+        </p>
+    </div>
+
+    <div class="balloons">
+        🎈🎉🎂🎁🎊
+    </div>
+
+    <button onclick="startConfetti()">Soltar Confetes 🎊</button>
+
+    <script>
+        function startConfetti() {
+            const colors = ['#f50057', '#f48fb1', '#ff80ab', '#e91e63', '#ff4081'];
+            const interval = setInterval(() => {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                document.body.appendChild(confetti);
+
+                setTimeout(() => {
+                    confetti.remove();
+                }, 5000);
+            }, 300); // confete novo a cada 300ms
+
+            // Parar após 20 segundos
+            setTimeout(() => clearInterval(interval), 20000);
+        }
+    </script>
+
+</body>
+</html>
